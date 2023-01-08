@@ -18,15 +18,13 @@ npm -v
 
 
 2. **Truffle v5.X.X** - A development framework for Ethereum. 
+Use truffle version from package.json devDependencies.
 ```bash
-# Unsinstall any previous version
-npm uninstall -g truffle
-# Install
-npm install -g truffle
-# Specify a particular version
-npm install -g truffle@5.0.2
-# Verify the version
-truffle version
+# Install all dev dependencies specified in package.json
+npm install
+
+# start local truffle
+npm run truffle:develop
 ```
 
 
@@ -36,29 +34,10 @@ truffle version
 3. [Ganache](https://www.trufflesuite.com/ganache) - Make sure that your Ganache and Truffle configuration file have the same port.
 
 
-4. **Other mandatory packages**:
-```bash
-cd app
-# install packages
-npm install --save  openzeppelin-solidity@2.3
-npm install --save  truffle-hdwallet-provider@1.0.17
-npm install webpack-dev-server -g
-npm install web3
-```
-
-
 ### Run the application
 1. Clean the frontend 
 ```bash
 cd app
-# Remove the node_modules  
-# remove packages
-rm -rf node_modules
-# clean cache
-npm cache clean
-rm package-lock.json
-# initialize npm (you can accept defaults)
-npm init
 # install all modules listed as dependencies in package.json
 npm install
 ```
