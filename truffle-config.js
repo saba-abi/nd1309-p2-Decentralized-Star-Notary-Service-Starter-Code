@@ -22,11 +22,13 @@
  *
  */
 
-// const HDWallet = require('truffle-hdwallet-provider');
-// const infuraKey = "fj4jll3k.....";
-//
-// const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
+const dotenv = require('dotenv');
+dotenv.config();
+dotenv.config({ path: `.env.local`, override: true });
+
+const { mnemonic, infuraKey } = process.env;
+
+const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 module.exports = {
   /**
@@ -72,6 +74,14 @@ module.exports = {
       // timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
       // skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
     // },
+
+    sepolia: {
+      provider: () => new HDWalletProvider(mnemonic, `https://sepolia.infura.io/v3/${infuraKey}`),
+      network_id: 11155111, // Sepolia's id
+      confirmations: 2,     // # of confirmations to wait between deployments. (default: 0)
+      timeoutBlocks: 200,   // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true      // Skip dry run before migrations? (default: false for public nets )
+    },
 
     // Useful for private networks
     // private: {

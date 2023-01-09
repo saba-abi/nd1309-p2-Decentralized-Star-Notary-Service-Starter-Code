@@ -2,11 +2,13 @@
   "name": "nd1309-p2-decentralized-star-notary-service-starter-code",
   "private": true,
   "scripts": {
-    "truffle:develop": "truffle develop"
+    "truffle:develop": "truffle develop",
+    "deploy:sepolia": "truffle migrate --reset --network sepolia"
   },
   "devDependencies": {
     "@openzeppelin/contracts": "^4.8.0",
     "@truffle/hdwallet-provider": "^2.1.4",
+    "dotenv": "^16.0.3",
     "truffle": "^5.7.2"
   }
 }

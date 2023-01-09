@@ -35,19 +35,11 @@ npm run truffle:develop
 
 
 ### Run the application
-1. Clean the frontend 
-```bash
-cd app
-# install all modules listed as dependencies in package.json
-npm install
-```
 
-
-2. Start Truffle by running
+1. Start Truffle by running
 ```bash
 # For starting the development console
-truffle develop
-# truffle console
+npm run truffle:develop
 
 # For compiling the contract, inside the development console, run:
 compile
@@ -59,10 +51,26 @@ migrate --reset
 test
 ```
 
+2. Install frontend dependencies
+```bash
+cd app
+# install all modules listed as dependencies in package.json
+npm install
+```
+
 3. Frontend - Once you are ready to start your frontend, run the following from the app folder:
 ```bash
 cd app
 npm run dev
+```
+
+### Deploy to Sepolia Test Network
+
+First copy `.env.example` to `.env.local` and provide required env variables, then run:
+
+
+```bash
+npm run deploy:sepolia
 ```
 
 ---
